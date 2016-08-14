@@ -12,6 +12,8 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.io.File;
+import java.net.URISyntaxException;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -256,6 +258,38 @@ public class ManipulationExercisesTest {
         }
     }
 
+
+    public void exerciseSevenTest() throws URISyntaxException{
+        /*
+         This test submits a file
+         */
+
+        System.out.println("running exerciseSevenTest");
+
+        try {
+            driver.navigate().to("http://compendiumdev.co.uk/selenium/basic_html_form.html");
+
+            WebElement fileNameInput = driver.findElement(By.cssSelector("input[type='file']"));
+
+            File testFile = new File(this.getClass().getResource("/testfile.txt").toURI());
+
+            fileNameInput.sendKeys(testFile.getAbsolutePath());
+
+            WebElement submitButton = driver.findElement(By.cssSelector("input[type='submit'][name='submitbutton']"));
+            submitButton.click();
+            new WebDriverWait(driver, 10).until(ExpectedConditions.titleIs("Processed Form Details"));
+            assertEquals("Assert submitted page title", "Processed Form Details", driver.getTitle());
+
+            WebElement multiResult1 = driver.findElement(By.cssSelector("li[id='_valuemultipleselect0']"));
+
+            assertEquals("Assert submitted dropdown", "ms1", multiResult1.getText());
+
+
+        }catch(NoSuchElementException e){
+            System.out.println("Failed");
+            fail("exerciseSevenTest failed");
+        }
+    }
 
 
 
