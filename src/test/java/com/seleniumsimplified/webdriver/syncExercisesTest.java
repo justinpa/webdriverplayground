@@ -3,22 +3,22 @@ package com.seleniumsimplified.webdriver;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import org.openqa.selenium.By;
-import org.openqa.selenium.NoSuchElementException;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.util.Iterator;
+import java.util.List;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.fail;
-import static org.openqa.selenium.support.ui.ExpectedConditions.presenceOfElementLocated;
 
 /**
  * Created by juspack on 09/06/16.
  */
-public class FramesExercisesTest {
+public class syncExercisesTest {
 
     //private static String marionetteLocation = "/usr/local/marionette/wires-0.7.1-OSX";
 
@@ -53,36 +53,44 @@ public class FramesExercisesTest {
 
 
     @Test
-    public void frameTest(){
+    public void syncAjaxTest(){
         /*
-         This test clicks around on frames
+         This test syncs with some ajax actions
          */
 
-        System.out.println("running frameTest");
+    try {
+        driver.navigate().to("http://compendiumdev.co.uk/selenium/basic_ajax.html");
 
-        try {
-            driver.navigate().to("http://compendiumdev.co.uk/selenium/frames");
-            driver.switchTo().frame("content");
+        System.out.println("Page title = " + driver.getTitle());
 
-            WebElement linkToClick = driver.findElement(By.linkText("Load green page"));
-            linkToClick.click();
+        WebElement categoryCombo = driver.findElement(By.id("combo1"));
+        List<WebElement> categoryComboOptions = categoryCombo.findElements(By.tagName("option"));
+        categoryComboOptions.get(1).click();
 
-            //Example of waiting until some text shown
-            wait.until(presenceOfElementLocated(By.cssSelector("h1[id='green']")));
-
-            //driver.switchTo().frame("content");
-            WebElement frameTitle = driver.findElement(By.cssSelector("h1[id='green']"));
-            assertEquals("Assert text on frame", "Green Page", frameTitle.getText());
-            WebElement linkToClickBack = driver.findElement(By.linkText("Back to original page"));
-            linkToClickBack.click();
+        wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("select[name='language_id']")));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("option[value='12']")));
 
 
+        WebElement languageCombo = driver.findElement(By.cssSelector("select[name='language_id']"));
+        List<WebElement> languageComboOptions = languageCombo.findElements(By.tagName("option"));
+        languageComboOptions.get(2).click();
 
-        }catch(NoSuchElementException e){
-            System.out.println("Failed");
-            fail("frameTest failed");
-        }
+        WebElement submitButton = driver.findElement(By.cssSelector("input[name='submitbutton']"));
+        submitButton.click();
+
+        wait.until(ExpectedConditions.titleIs("Processed Form Details"));
+
+        assertEquals("Check page title", "Processed Form Details", driver.getTitle());
+
+
+    }catch(NoSuchElementException e){
+        System.out.println("Failed");
+        fail("Test failed");
     }
+}
+
+
+
 
 
     @AfterClass
