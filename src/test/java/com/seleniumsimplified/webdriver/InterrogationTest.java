@@ -7,7 +7,10 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.MarionetteDriver;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.HashSet;
 import java.util.List;
@@ -22,14 +25,29 @@ import static org.junit.Assert.fail;
  */
 public class InterrogationTest {
 
-    private static String marionetteLocation = "/usr/local/marionette/wires-0.7.1-OSX";
+    private static String marionetteLocation = "/usr/local/marionette/geckodriver-0.9.0-OSX";
     public static WebDriver driver;
+    public static WebDriverWait wait;
 
     @BeforeClass
     public static void startDriver(){
         System.out.println("running startDriver");
+
         System.setProperty("webdriver.gecko.driver", marionetteLocation);
-        driver = new MarionetteDriver();
+
+        //The folowing is for gecko 0.9.0
+        DesiredCapabilities capabilities = DesiredCapabilities.firefox();
+        capabilities.setCapability("marionette", true);
+        driver = new FirefoxDriver(capabilities);
+
+        //driver = new MarionetteDriver();
+        driver.get("http://compendiumdev.co.uk");
+        driver.navigate().to("http://compendiumdev.co.uk/selenium/basic_html_form.html");
+        assertEquals("Assert initial page title", driver.getTitle(), "HTML Form Elements");
+
+        //Setup the waiting time
+        wait = new WebDriverWait(driver,10);
+        driver.get("http://compendiumdev.co.uk");
     }
 
 
