@@ -9,11 +9,11 @@ public class CookieManager {
 
     private WebDriver driver;
 
-    public driver(WebDriver aDriver) {
+    public CookieManager(WebDriver aDriver) {
         driver = aDriver;
     }
 
-    public void get(String cookieName){
+    public void getCookieNamed(String cookieName){
         String cookieValue = driver.manage().getCookieNamed(cookieName).getValue();
         System.out.println("Cookie value is:" + cookieValue);
     }

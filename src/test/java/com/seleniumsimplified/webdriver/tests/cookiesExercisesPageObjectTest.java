@@ -30,6 +30,8 @@ public class cookiesExercisesPageObjectTest {
         WebDriver driver = Driver.get();
         searchEngingPage = new SearchEnginePageObject(driver);
         searchEngingPage.get();
+        cookieManager = new CookieManager(driver);
+
     }
 
 
@@ -41,10 +43,10 @@ public class cookiesExercisesPageObjectTest {
         try {
             searchEngingPage.enterSearchQuery("cookie");
             searchEngingPage.submitSearchQuery();
-            cookieManager.get("seleniumSimplifiedLastSearch");
+            cookieManager.getCookieNamed("seleniumSimplifiedLastSearch");
             String firstResultText = searchEngingPage.getSearchResultText(0);
             assertEquals("Check first result", "Cookie Clicker - DashNet", firstResultText);
-            searchEngingPage.clickSearchResultLink();
+            searchEngingPage.clickSearchResultLink(0);
 
         }catch(NoSuchElementException e){
             System.out.println("Failed");
