@@ -14,9 +14,15 @@ import java.util.List;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.fail;
 
+//Import driver and test environment above
+import com.seleniumsimplified.webdriver.manager.Driver;
+import com.seleniumsimplified.webdriver.manager.TestEnvironment;
+
 /**
  * Created by juspack on 09/06/16.
  */
+
+
 public class cookiesExercisesTest {
 
     //private static String marionetteLocation = "/usr/local/marionette/wires-0.7.1-OSX";
@@ -24,13 +30,19 @@ public class cookiesExercisesTest {
     private static String marionetteLocation = "/usr/local/marionette/geckodriver-0.9.0-OSX";
 
 
+    //for in class driver setup
+    //public static WebDriver driver;
 
-    public static WebDriver driver;
+    //for reusable driver setup
+    static WebDriver driver;
     public static WebDriverWait wait;
 
     @BeforeClass
     public static void startDriver(){
         System.out.println("running startDriver");
+
+        driver = Driver.get(TestEnvironment.getUrl("find_by_playground.php"));
+/*
         System.setProperty("webdriver.gecko.driver", marionetteLocation);
 
         //The folowing is for gecko 0.9.0
@@ -46,8 +58,7 @@ public class cookiesExercisesTest {
 
         //Setup the waiting time
         wait = new WebDriverWait(driver,10);
-
-
+*/
     }
 
 

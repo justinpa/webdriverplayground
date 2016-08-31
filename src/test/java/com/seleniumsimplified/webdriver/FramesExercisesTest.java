@@ -23,9 +23,6 @@ public class FramesExercisesTest {
     //private static String marionetteLocation = "/usr/local/marionette/wires-0.7.1-OSX";
 
     private static String marionetteLocation = "/usr/local/marionette/geckodriver-0.9.0-OSX";
-
-
-
     public static WebDriver driver;
     public static WebDriverWait wait;
 
