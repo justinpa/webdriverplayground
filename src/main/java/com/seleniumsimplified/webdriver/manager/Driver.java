@@ -22,6 +22,7 @@ import java.net.URL;
 import java.util.Map;
 import java.util.Properties;
 import java.util.Set;
+import java.util.concurrent.TimeUnit;
 
 /**
  * A singleton style manager to maintain Drivers to prevent
@@ -202,6 +203,7 @@ public class Driver extends Thread{
                     //private static String marionetteLocation = "/usr/local/marionette/geckodriver-0.9.0-OSX";
 
                     aDriver = new MarionetteDriver();//profile);
+                    aDriver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
                     currentDriver = BrowserName.FIREFOXMARIONETTE;
                     break;
 
