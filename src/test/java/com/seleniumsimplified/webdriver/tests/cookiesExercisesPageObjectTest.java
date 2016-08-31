@@ -7,7 +7,6 @@ import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.openqa.selenium.*;
-
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.fail;
 
@@ -51,7 +50,6 @@ public class cookiesExercisesPageObjectTest {
     @Test
     public void buildCookieTest(){
         //This test builds a cookie in the browser
-
         searchEngingPage.get();
         cookieManager.deleteCookie("buildCookieTestCookie");
         cookieManager.createCookie("buildCookieTestCookie", "buildCookieTestCookie_value");

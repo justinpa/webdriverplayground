@@ -39,7 +39,7 @@ public class Driver extends Thread{
     public static final String BROWSER_PROPERTY_NAME = "selenium2basics.webdriver";
 
 
-    private static final  String DEFAULT_BROWSER = "FIREFOX";
+    private static final  String DEFAULT_BROWSER = "FIREFOXMARIONETTE";
 
     public enum BrowserName{FIREFOX, GOOGLECHROME, SAUCELABS, IE, HTMLUNIT, GRID, FIREFOXPORTABLE, FIREFOXMARIONETTE, APPIUM, EDGE}
 
