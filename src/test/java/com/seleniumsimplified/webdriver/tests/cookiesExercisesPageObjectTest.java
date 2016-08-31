@@ -40,21 +40,23 @@ public class cookiesExercisesPageObjectTest {
         /*
          This tests some cookie actions
          */
-        try {
-            searchEngingPage.enterSearchQuery("cookie");
-            searchEngingPage.submitSearchQuery();
-            cookieManager.getCookieNamed("seleniumSimplifiedLastSearch");
-            String firstResultText = searchEngingPage.getSearchResultText(0);
-            assertEquals("Check first result", "Cookie Clicker - DashNet", firstResultText);
-            searchEngingPage.clickSearchResultLink(0);
-
-        }catch(NoSuchElementException e){
-            System.out.println("Failed");
-            fail("Test failed");
-        }
+        searchEngingPage.enterSearchQuery("cookie");
+        searchEngingPage.submitSearchQuery();
+        cookieManager.getCookieNamed("seleniumSimplifiedLastSearch");
+        String firstResultText = searchEngingPage.getSearchResultText(0);
+        assertEquals("Check first result", "Cookie Clicker - DashNet", firstResultText);
+        searchEngingPage.clickSearchResultLink(0);
     }
 
+    @Test
+    public void buildCookieTest(){
+        //This test builds a cookie in the browser
 
+        searchEngingPage.get();
+        cookieManager.deleteCookie("buildCookieTestCookie");
+        cookieManager.createCookie("buildCookieTestCookie", "buildCookieTestCookie_value");
+        cookieManager.getCookieNamed("buildCookieTestCookie");
+    }
 
     @AfterClass
     public static void afterTest(){
