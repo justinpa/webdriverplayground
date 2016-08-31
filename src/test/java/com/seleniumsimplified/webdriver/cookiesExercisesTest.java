@@ -25,24 +25,14 @@ import com.seleniumsimplified.webdriver.manager.TestEnvironment;
 
 public class cookiesExercisesTest {
 
-    //private static String marionetteLocation = "/usr/local/marionette/wires-0.7.1-OSX";
-
     private static String marionetteLocation = "/usr/local/marionette/geckodriver-0.9.0-OSX";
-
-
-    //for in class driver setup
-    //public static WebDriver driver;
-
-    //for reusable driver setup
-    static WebDriver driver;
+    public static WebDriver driver;
     public static WebDriverWait wait;
 
     @BeforeClass
     public static void startDriver(){
         System.out.println("running startDriver");
 
-        driver = Driver.get(TestEnvironment.getUrl("find_by_playground.php"));
-/*
         System.setProperty("webdriver.gecko.driver", marionetteLocation);
 
         //The folowing is for gecko 0.9.0
@@ -50,15 +40,14 @@ public class cookiesExercisesTest {
         capabilities.setCapability("marionette", true);
         driver = new FirefoxDriver(capabilities);
 
-
         //driver = new MarionetteDriver();
         driver.get("http://compendiumdev.co.uk");
-        driver.navigate().to("http://compendiumdev.co.uk/selenium/basic_html_form.html");
-        assertEquals("Assert initial page title", driver.getTitle(), "HTML Form Elements");
+//        driver.navigate().to("http://compendiumdev.co.uk/selenium/basic_html_form.html");
+//        assertEquals("Assert initial page title", driver.getTitle(), "HTML Form Elements");
 
         //Setup the waiting time
         wait = new WebDriverWait(driver,10);
-*/
+        driver.get("http://compendiumdev.co.uk");
     }
 
 

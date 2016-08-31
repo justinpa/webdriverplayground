@@ -43,7 +43,7 @@ public class NavigationTest {
         //Setup the waiting time
         wait = new WebDriverWait(driver,10);
         driver.get("http://compendiumdev.co.uk");
-        
+
     }
 
     /*
