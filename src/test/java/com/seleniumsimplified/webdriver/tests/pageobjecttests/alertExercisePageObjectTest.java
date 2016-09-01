@@ -15,6 +15,7 @@ import static org.junit.Assert.fail;
 public class alertExercisePageObjectTest {
 
     private static AlertPageObject alertPage;
+    
 
     @BeforeClass
     public static void setupDriver(){
