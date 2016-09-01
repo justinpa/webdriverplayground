@@ -12,10 +12,10 @@ import static org.junit.Assert.fail;
 /**
  * Created by juspack on 09/06/16.
  */
-public class alertExercisePageObjectTest {
+public class AlertExercisePageObjectTest {
 
     private static AlertPageObject alertPage;
-    
+
 
     @BeforeClass
     public static void setupDriver(){
@@ -26,7 +26,7 @@ public class alertExercisePageObjectTest {
 
 
     @Test
-    public void clickAlertButtonAndAcceptAlert(){
+    public void testClickAlertButtonAndAcceptAlert(){
         //This test clicks OK on an alert
 
         alertPage.get();
@@ -37,7 +37,7 @@ public class alertExercisePageObjectTest {
 
 
     @Test
-    public void clickConfirmButtonAndDismissAndAccept(){
+    public void testClickConfirmButtonAndDismissAndAccept(){
         //This test clicks OK and cancel on an alert
 
         alertPage.get();
@@ -52,7 +52,7 @@ public class alertExercisePageObjectTest {
 
 
     @Test
-    public void clickPromptAndChangeText(){
+    public void testClickPromptAndChangeText(){
         //This test changes text on an alert
 
         alertPage.get();

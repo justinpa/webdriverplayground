@@ -18,7 +18,7 @@ import static org.junit.Assert.fail;
  */
 
 
-public class cookiesExercisePageObjectTest {
+public class CookiesExercisePageObjectTest {
 
     private static SearchEnginePageObject searchEngingPage;
     private static CookieManager cookieManager;
@@ -34,7 +34,7 @@ public class cookiesExercisePageObjectTest {
 
 
     @Test
-    public void cookieTest(){
+    public void testGetCookieText(){
         /*
          This tests some cookie actions
          */
@@ -47,7 +47,7 @@ public class cookiesExercisePageObjectTest {
     }
 
     @Test
-    public void buildCookieTest(){
+    public void testBuildCookie(){
         //This test builds a cookie in the browser
         searchEngingPage.get();
         cookieManager.deleteCookie("buildCookieTestCookie");
