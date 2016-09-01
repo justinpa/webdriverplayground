@@ -1,4 +1,4 @@
-package com.seleniumsimplified.webdriver.tests;
+package com.seleniumsimplified.webdriver.tests.pageobjecttests;
 
 import com.seleniumsimplified.webdriver.manager.CookieManager;
 import com.seleniumsimplified.webdriver.pageobjects.*;
@@ -18,9 +18,8 @@ import static org.junit.Assert.fail;
  */
 
 
-public class cookiesExercisesPageObjectTest {
+public class cookiesExercisePageObjectTest {
 
-    //private Driver driver;
     private static SearchEnginePageObject searchEngingPage;
     private static CookieManager cookieManager;
 

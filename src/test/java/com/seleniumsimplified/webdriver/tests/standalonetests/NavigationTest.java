@@ -1,4 +1,4 @@
-package com.seleniumsimplified.webdriver.tests;
+package com.seleniumsimplified.webdriver.tests.standalonetests;
 
 import org.junit.AfterClass;
 import org.junit.Before;

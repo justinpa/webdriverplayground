@@ -202,7 +202,13 @@ public class Driver extends Thread{
 
                     //private static String marionetteLocation = "/usr/local/marionette/geckodriver-0.9.0-OSX";
 
-                    aDriver = new MarionetteDriver();//profile);
+                    //Below is for 0.9.0
+                    DesiredCapabilities capabilities = DesiredCapabilities.firefox();
+                    capabilities.setCapability("marionette", true);
+                    aDriver = new FirefoxDriver(capabilities);
+
+                    //Commenting out Alans line below
+                    //aDriver = new MarionetteDriver();//profile);
                     aDriver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
                     currentDriver = BrowserName.FIREFOXMARIONETTE;
                     break;
