@@ -21,7 +21,7 @@ public class AlertExercisesTest {
 
     //private static String marionetteLocation = "/usr/local/marionette/wires-0.7.1-OSX";
 
-    private static String marionetteLocation = "/usr/local/marionette/geckodriver-0.9.0-OSX";
+    private static String marionetteLocation = "/usr/local/marionette/geckodriver-0.18.0-OSX";
 
 
 
@@ -32,7 +32,7 @@ public class AlertExercisesTest {
         System.out.println("running startDriver");
         System.setProperty("webdriver.gecko.driver", marionetteLocation);
 
-        //The folowing is for gecko 0.9.0
+        //The folowing is for gecko 0.18.0
         DesiredCapabilities capabilities = DesiredCapabilities.firefox();
         capabilities.setCapability("marionette", true);
         driver = new FirefoxDriver(capabilities);

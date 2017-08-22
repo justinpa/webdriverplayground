@@ -10,7 +10,7 @@ import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxBinary;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxProfile;
-import org.openqa.selenium.firefox.MarionetteDriver;
+//import org.openqa.selenium.firefox.MarionetteDriver;
 import org.openqa.selenium.htmlunit.HtmlUnitDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
@@ -198,7 +198,7 @@ public class Driver extends Thread{
 
 
                     //setDriverPropertyIfNecessary("webdriver.gecko.driver", "/../tools/marionette/wires.exe", "C://webdrivers/marionette/wires.exe");
-                    setDriverPropertyIfNecessary("webdriver.gecko.driver", "/usr/local/marionette/geckodriver-0.9.0-OSX", "/usr/local/marionette/geckodriver-0.9.0-OSX");
+                    setDriverPropertyIfNecessary("webdriver.gecko.driver", "/usr/local/marionette/geckodriver-0.18.0-OSX", "/usr/local/marionette/geckodriver-0.18.0-OSX");
 
                     //private static String marionetteLocation = "/usr/local/marionette/geckodriver-0.9.0-OSX";
 
